@@ -7,6 +7,10 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { MapScreen } from "./src/features/map/screens/map.screen";
 import { SettingsScreen } from "./src/features/settings/screens/settings.screen";
+import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+
+import { theme } from "./src/infrastructure/theme";
 
 import {
   useFonts as useOswald,
@@ -17,9 +21,6 @@ import {
   Lato_400Regular,
   Lato_700Bold,
 } from "@expo-google-fonts/lato";
-
-import { theme } from "./src/infrastructure/theme";
-import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
 const Tab = createBottomTabNavigator();
 
@@ -71,10 +72,12 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <MyTabs />
-        </NavigationContainer>
-        <ExpoStatusBar style="auto" />
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <MyTabs />
+          </NavigationContainer>
+          <ExpoStatusBar style="auto" />
+        </RestaurantsContextProvider>
       </ThemeProvider>
     </>
   );
