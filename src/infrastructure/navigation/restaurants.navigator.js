@@ -20,11 +20,11 @@ export const RestaurantsNavigator = () => {
     >
       <RestaurantStack.Screen
         name="Restaurants"
-        component={RestaurantsScreen} // This component will inherit the prop navigation
+        component={RestaurantsScreen}
       />
       <RestaurantStack.Screen
         name="RestaurantDetail"
-        component={RestaurantDetailScreen} // This component get the route prop
+        component={RestaurantDetailScreen}
       />
     </RestaurantStack.Navigator>
   );
