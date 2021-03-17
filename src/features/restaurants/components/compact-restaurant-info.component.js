@@ -29,7 +29,7 @@ export const CompactRestaurantInfo = ({ restaurant = {} }) => {
   return (
     <Item>
       <Image key={restaurant.name} source={{ uri: restaurant.photos[0] }} />
-      <Text variant="label">{restaurant.name}</Text>
+      <Text variant="caption">{restaurant.name}</Text>
     </Item>
   );
 };
