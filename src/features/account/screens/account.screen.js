@@ -1,11 +1,13 @@
 import React from "react";
-import { SocialIcon } from "react-native-elements";
+import LottieView from "lottie-react-native";
 
 import {
   AccountBackground,
   AccountCover,
   AccountContainer,
   Title,
+  AnimationWrapper,
+  RegisterButton,
 } from "../components/account.styles";
 import { LoginScreen } from "./login.screen";
 
@@ -13,17 +15,26 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <AnimationWrapper>
+        <LottieView
+          key="animation"
+          autoPlay
+          loop
+          resizeMode="cover"
+          source={require("../../../../assets/watermelon.json")}
+        />
+      </AnimationWrapper>
       <Title>Meals To Go</Title>
       <AccountContainer>
         <LoginScreen />
-        <SocialIcon
-          button
-          title="register      "
-          type="twitch"
-          iconSize={0}
-          iconColor="#6441a5"
+
+        <RegisterButton
           onPress={() => navigation.navigate("Register")}
-        />
+          dark
+          mode="contained"
+        >
+          Register
+        </RegisterButton>
       </AccountContainer>
     </AccountBackground>
   );

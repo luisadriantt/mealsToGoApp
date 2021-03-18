@@ -3,7 +3,11 @@ import { Icon } from "react-native-elements";
 import { Input } from "react-native-elements";
 import { SocialIcon } from "react-native-elements";
 
-import { LoginContainer, ErrorContainer } from "../components/account.styles";
+import {
+  LoginContainer,
+  ErrorContainer,
+  LoginButton,
+} from "../components/account.styles";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 import { Text } from "../../../components/typography/text.component";
@@ -40,14 +44,13 @@ export const LoginScreen = () => {
         </ErrorContainer>
       )}
       {!isLoading ? (
-        <SocialIcon
-          button
-          title="login      "
-          type="facebook"
-          iconSize={0}
-          iconColor="#4267B2"
+        <LoginButton
+          mode="contained"
+          dark
           onPress={() => onLogin(email, password)}
-        />
+        >
+          login
+        </LoginButton>
       ) : (
         <Icon name="spinner-2" type="evilicon" color="#4267B2" />
       )}

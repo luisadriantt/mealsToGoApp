@@ -9,11 +9,11 @@ import {
   AccountContainer,
   ErrorContainer,
   Title,
+  RegisterButton,
 } from "../components/account.styles";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
-import { ActivityIndicator } from "react-native-paper";
 
 export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -61,16 +61,15 @@ export const RegisterScreen = ({ navigation }) => {
         )}
         <Spacer size="large">
           {!isLoading ? (
-            <SocialIcon
-              button
-              title="register      "
-              type="twitch"
-              iconSize={0}
-              iconColor="#6441a5"
+            <RegisterButton
+              dark
+              mode="contained"
               onPress={() => onRegister(email, password, repeatedPassword)}
-            />
+            >
+              Register
+            </RegisterButton>
           ) : (
-            <Icon name="spinner-2" type="evilicon" color="#6441a5" />
+            <Icon name="spinner-2" type="evilicon" color="#fe5a5e" />
           )}
         </Spacer>
       </AccountContainer>
@@ -79,7 +78,7 @@ export const RegisterScreen = ({ navigation }) => {
           reverse
           name="arrow-undo-sharp"
           type="ionicon"
-          color="#6441a5"
+          color="#fe5a5e"
           onPress={() => navigation.goBack()}
         />
       </Spacer>
