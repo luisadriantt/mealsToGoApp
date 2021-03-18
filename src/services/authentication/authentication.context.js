@@ -23,6 +23,25 @@ export const AuthenticationContextProvider = ({ children }) => {
         console.log("el error ", e);
       });
   };
+  const onRegister = (email, password, confirmPassword) => {
+    if (password !== confirmPassword) {
+      setError("Error: Passwordds do not match");
+      return;
+    }
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((u) => {
+        setUser(u);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setIsLoading(false);
+        setError(e.toString());
+        console.log("el error ", e);
+      });
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -31,6 +50,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         isLoading,
         error,
         onLogin,
+        onRegister,
       }}
     >
       {children}

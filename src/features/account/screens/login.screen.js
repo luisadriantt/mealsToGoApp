@@ -3,11 +3,10 @@ import { Icon } from "react-native-elements";
 import { Input } from "react-native-elements";
 import { SocialIcon } from "react-native-elements";
 
-import { LoginContainer } from "../components/account.styles";
+import { LoginContainer, ErrorContainer } from "../components/account.styles";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 import { Text } from "../../../components/typography/text.component";
-import { Spacer } from "../../../components/spacer/spacer.component";
 
 export const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -36,9 +35,9 @@ export const LoginScreen = () => {
         leftIcon={<Icon name="lock" type="evilicon" size={24} color="black" />}
       />
       {error && (
-        <Spacer size="large">
+        <ErrorContainer>
           <Text variant="error">{error}</Text>
-        </Spacer>
+        </ErrorContainer>
       )}
       <SocialIcon
         button

@@ -5,6 +5,7 @@ import {
   AccountBackground,
   AccountCover,
   AccountContainer,
+  Title,
 } from "../components/account.styles";
 import { LoginScreen } from "./login.screen";
 
@@ -12,6 +13,7 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <Title>Meals To Go</Title>
       <AccountContainer>
         <LoginScreen />
         <SocialIcon
