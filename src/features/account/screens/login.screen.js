@@ -11,7 +11,7 @@ import { Text } from "../../../components/typography/text.component";
 export const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { onLogin, error } = useContext(AuthenticationContext);
+  const { onLogin, isLoading, error } = useContext(AuthenticationContext);
 
   return (
     <LoginContainer>
@@ -39,14 +39,18 @@ export const LoginScreen = () => {
           <Text variant="error">{error}</Text>
         </ErrorContainer>
       )}
-      <SocialIcon
-        button
-        title="login      "
-        type="facebook"
-        iconSize={0}
-        iconColor="#4267B2"
-        onPress={() => onLogin(email, password)}
-      />
+      {!isLoading ? (
+        <SocialIcon
+          button
+          title="login      "
+          type="facebook"
+          iconSize={0}
+          iconColor="#4267B2"
+          onPress={() => onLogin(email, password)}
+        />
+      ) : (
+        <Icon name="spinner-2" type="evilicon" color="#4267B2" />
+      )}
     </LoginContainer>
   );
 };

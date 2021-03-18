@@ -13,12 +13,13 @@ import {
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { ActivityIndicator } from "react-native-paper";
 
 export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  const { onRegister, error } = useContext(AuthenticationContext);
+  const { onRegister, isLoading, error } = useContext(AuthenticationContext);
 
   return (
     <AccountBackground>
@@ -59,14 +60,18 @@ export const RegisterScreen = ({ navigation }) => {
           </ErrorContainer>
         )}
         <Spacer size="large">
-          <SocialIcon
-            button
-            title="register      "
-            type="twitch"
-            iconSize={0}
-            iconColor="#6441a5"
-            onPress={() => onRegister(email, password, repeatedPassword)}
-          />
+          {!isLoading ? (
+            <SocialIcon
+              button
+              title="register      "
+              type="twitch"
+              iconSize={0}
+              iconColor="#6441a5"
+              onPress={() => onRegister(email, password, repeatedPassword)}
+            />
+          ) : (
+            <Icon name="spinner-2" type="evilicon" color="#6441a5" />
+          )}
         </Spacer>
       </AccountContainer>
       <Spacer size="large">
