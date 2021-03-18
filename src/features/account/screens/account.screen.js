@@ -6,20 +6,14 @@ import {
   AccountCover,
   AccountContainer,
 } from "../components/account.styles";
+import { LoginScreen } from "./login.screen";
 
 export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
       <AccountContainer>
-        <SocialIcon
-          button
-          title="login      "
-          type="facebook"
-          iconSize={0}
-          iconColor="#4267B2"
-          onPress={() => navigation.navigate("Login")}
-        />
+        <LoginScreen />
         <SocialIcon
           button
           title="register      "
