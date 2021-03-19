@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Icon } from "react-native-elements";
 import { Input } from "react-native-elements";
-import { SocialIcon } from "react-native-elements";
 
 import {
   AccountBackground,
