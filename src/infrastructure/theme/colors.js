@@ -12,6 +12,8 @@ export const colors = {
     disabled: "#DEDEDE",
     error: "#D0421B",
     success: "#138000",
+    wred: "#fe5a5e",
+    wgreen: "#8DDF71",
   },
   bg: {
     primary: "#FFFFFF",
