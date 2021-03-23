@@ -8,3 +8,4 @@ Using: `React Hooks` `Stripe` `Firebase` `Styled Components` `Maps` ...
 ![](intro.gif)
 </centered>
 
+//TODO: add Google and Facebook login
